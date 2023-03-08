@@ -1,2 +1,2 @@
-# .dotfiles
-My personal configuration in ArchLinux
+# dotfiles
+Personal configuration in Arch Linux.
