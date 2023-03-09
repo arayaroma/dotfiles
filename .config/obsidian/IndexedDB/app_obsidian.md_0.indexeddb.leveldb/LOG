@@ -1,2 +1,3 @@
-2023/03/07-23:37:57.424 b46 Creating DB /home/araya/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb since it was missing.
-2023/03/07-23:37:57.428 b46 Reusing MANIFEST /home/araya/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
+2023/03/08-20:33:28.077 b8a Reusing MANIFEST /home/araya/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
+2023/03/08-20:33:28.077 b8a Recovering log #3
+2023/03/08-20:33:28.087 b8a Reusing old log /home/araya/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000003.log 
