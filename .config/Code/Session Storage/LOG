@@ -1,2 +1,3 @@
-2023/03/08-02:23:11.913 1cd7 Creating DB /home/araya/.config/Code/Session Storage since it was missing.
-2023/03/08-02:23:11.932 1cd7 Reusing MANIFEST /home/araya/.config/Code/Session Storage/MANIFEST-000001
+2023/03/09-01:28:08.604 7911 Reusing MANIFEST /home/araya/.config/Code/Session Storage/MANIFEST-000001
+2023/03/09-01:28:08.605 7911 Recovering log #3
+2023/03/09-01:28:08.605 7911 Reusing old log /home/araya/.config/Code/Session Storage/000003.log 

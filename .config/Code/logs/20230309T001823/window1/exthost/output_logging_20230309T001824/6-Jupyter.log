@@ -1,0 +1,27 @@
+Visual Studio Code (1.76.0, undefined, desktop)
+Jupyter Extension Version: 2023.2.1000592019.
+Python Extension Version: 2023.4.0.
+Workspace folder /home/araya/Repos/ateam-builders-website
+info 00:26:01.335: LSP Notebooks experiment is enabled
+info 00:26:01.412: Process Execution: > jupyter notebook --version
+> jupyter notebook --version
+info 00:26:01.419: Process Execution: > jupyter lab --version
+> jupyter lab --version
+warn 00:26:02.490: Failed to get activated env vars with python /bin/python in 35ms
+info 00:26:02.497: Process Execution: > /bin/python -c "import site;print("USER_BASE_VALUE");print(site.USER_SITE);print("USER_BASE_VALUE");"
+> /bin/python -c "import site;print("USER_BASE_VALUE");print(site.USER_SITE);print("USER_BASE_VALUE");"
+info 00:26:02.516: Process Execution: > /bin/python -m pip list
+> /bin/python -m pip list
+info 00:26:02.534: Process Execution: > /bin/python -c "import pip;print('6af208d0-cb9c-427f-b937-ff563e17efdf')"
+> /bin/python -c "import pip;print('6af208d0-cb9c-427f-b937-ff563e17efdf')"
+error 00:26:02.543: interpreterPackages getPackageInformation, Class name = Xd, completed in 89ms, has a falsy return value, Arg 1: {"interpreter":{"id":"/bin/python","sysPrefix":"/usr","displayPath":{"$mid":1,"fsPath":"/bin/python","path":"/bin/python","scheme":"file"},"envName":"","uri":{"$mid":1,"fsPath":"/bin/python","external":"file:///bin/python","path":"/bin/python","scheme":"file"},"displayName":"","envType":"Unknown","version":{"major":3,"minor":10,"patch":9,"raw":"3.10.9 (main, Dec 19 2022, 17:35:49) [GCC 12.2.0]"}}} wl [Error]: Module 'pip' not installed.
+    at Sl.execModule (/home/araya/.vscode/extensions/ms-toolsai.jupyter-2023.2.1000592019/out/extension.node.js:2:1783299)
+    at Xd.getPackageInformation (/home/araya/.vscode/extensions/ms-toolsai.jupyter-2023.2.1000592019/out/extension.node.js:17:40189) {
+  category: 'notinstalled',
+  moduleName: 'pip'
+}
+info 00:26:25.951: Process Execution: > ~/Repos/ateam-builders-website/server/server/venv/bin/python -m pip list
+> ~/Repos/ateam-builders-website/server/server/venv/bin/python -m pip list
+info 01:28:06.810: Shutting down notebooks for dd1bf41e-69ea-4b48-9f4a-f21724e405ef
+info 01:28:06.810: Disposing HostJupyterExecution 6108e9e7-d579-4c31-860a-e2a44240217e
+info 01:28:06.811: Disposing HostJupyterExecution 6108e9e7-d579-4c31-860a-e2a44240217e

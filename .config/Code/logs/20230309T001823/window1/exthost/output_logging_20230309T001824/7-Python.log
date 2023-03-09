@@ -1,0 +1,14 @@
+Experiment 'pythonPromptNewToolsExt' is active
+LSP Notebooks experiment is enabled
+LSP Notebooks interactive window support is enabled
+> conda info --json
+> /bin/python -I ~/.vscode/extensions/ms-python.python-2023.4.0/pythonFiles/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2023.4.0/pythonFiles/interpreterInfo.py
+> /sbin/python -I ~/.vscode/extensions/ms-python.python-2023.4.0/pythonFiles/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2023.4.0/pythonFiles/interpreterInfo.py
+> /usr/bin/python -I ~/.vscode/extensions/ms-python.python-2023.4.0/pythonFiles/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2023.4.0/pythonFiles/interpreterInfo.py
+> /usr/sbin/python -I ~/.vscode/extensions/ms-python.python-2023.4.0/pythonFiles/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2023.4.0/pythonFiles/interpreterInfo.py
+Python interpreter path: /bin/python
+Starting Pylance language server.
+> ./server/server/venv/bin/python -I ~/.vscode/extensions/ms-python.python-2023.4.0/pythonFiles/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2023.4.0/pythonFiles/interpreterInfo.py
+Python interpreter path: ./server/server/venv/bin/python
+> . ./server/server/venv/bin/activate && echo 'e8b39361-0157-4923-80e1-22d70d46dee6' && python ~/.vscode/extensions/ms-python.python-2023.4.0/pythonFiles/printEnvVariables.py
+Send text to terminal: source /home/araya/Repos/ateam-builders-website/server/server/venv/bin/activate

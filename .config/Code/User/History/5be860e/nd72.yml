@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+
+  client:
+    user: 1000:1000
+    build: 
+      context: ./client
+      dockerfile: client.Dockerfile
+    command: npm start
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://server:8000
+    depends_on:
+      - server
+
+  server:
+    build: 
+      context: ./server
+      dockerfile: server.Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./server:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=True
+      - DATABASE_URL=postgres://ateam-builders:arayaroma@database:5432/ateam-builders-db
+    depends_on:
+      - database
+
+  database:
+    build: 
+      context: ./server/database
+      dockerfile: database.Dockerfile
+    environment:
+      - POSTGRES_USER=ateam-builders
+      - POSTGRES_PASSWORD=arayaroma
+      - POSTGRES_DB=ateam-builders-db
+    ports:
+      - "5432:5432"
