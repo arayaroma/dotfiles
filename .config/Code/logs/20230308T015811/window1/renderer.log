@@ -1,0 +1,10 @@
+2023-03-08 01:58:11.631 [info] Electron sandbox mode is enabled!
+2023-03-08 01:58:11.857 [error] Extension 'tabnine.tabnine-vscode' wants API proposal 'inlineCompletions' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
+2023-03-08 01:58:11.937 [warning] [ms-toolsai.vscode-jupyter-cell-tags]: View container 'jupyter' does not exist and all views registered to it will be added to 'Explorer'.
+2023-03-08 01:58:13.246 [error] ENOENT: no such file or directory, open '/home/araya/.config/Code/User/globalStorage/vscodevim.vim/.registers': Error: ENOENT: no such file or directory, open '/home/araya/.config/Code/User/globalStorage/vscodevim.vim/.registers'
+2023-03-08 01:58:14.516 [info] [perf] Render performance baseline is 30ms
+2023-03-08 02:16:38.454 [info] Electron sandbox mode is enabled!
+2023-03-08 02:16:38.696 [error] Extension 'tabnine.tabnine-vscode' wants API proposal 'inlineCompletions' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
+2023-03-08 02:16:40.016 [error] ENOENT: no such file or directory, open '/home/araya/.config/Code/User/globalStorage/vscodevim.vim/.registers': Error: ENOENT: no such file or directory, open '/home/araya/.config/Code/User/globalStorage/vscodevim.vim/.registers'
+2023-03-08 02:16:41.359 [info] [perf] Render performance baseline is 31ms
+2023-03-08 02:16:42.843 [warning] [ms-toolsai.vscode-jupyter-cell-tags]: View container 'jupyter' does not exist and all views registered to it will be added to 'Explorer'.

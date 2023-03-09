@@ -1,0 +1,8 @@
+2023-03-08 00:48:50.223 [info] Starting worker process with pid 24106 (type: fileWatcher, window: 1).
+2023-03-08 00:50:17.918 [info] Getting Manifest... ms-python.vscode-pylance
+2023-03-08 00:50:18.151 [info] Installing extension: ms-python.vscode-pylance
+2023-03-08 00:50:18.157 [info] Installing the extension without checking dependencies and pack ms-python.vscode-pylance
+2023-03-08 00:50:23.912 [warning] Extension signature verification: ms-python.vscode-pylance. Verification status: UnknownError.
+2023-03-08 00:50:25.434 [info] Extracted extension to /home/araya/.vscode/extensions/.72b522fd-a6a2-4ae5-8755-fbdc1aa29f08: ms-python.vscode-pylance
+2023-03-08 00:50:25.440 [info] Renamed to /home/araya/.vscode/extensions/ms-python.vscode-pylance-2023.3.10
+2023-03-08 00:50:25.441 [info] Extracting extension completed. ms-python.vscode-pylance
