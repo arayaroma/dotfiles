@@ -7,6 +7,12 @@
 !README.md
 !.bashrc
 !.zshrc
-!.config
+!.config/alacritty
+!.config/dconf
+!.config/pipewire/pipewire
+!.config/pulse
+!.config/qtile
+!.config/systemd/user
+!.config/clight.conf
 !.xinitrc
 !.xprofile

@@ -1,5 +1,0 @@
-2023-03-08 00:48:50.651 [warning] /home/araya/.ssh/config: ENOENT: no such file or directory, open '/home/araya/.ssh/config'
-2023-03-08 00:48:50.743 [info] Looking for git repository
-2023-03-08 00:48:50.743 [info] Found 0 repositories during activation
-2023-03-08 00:48:50.743 [info] Git repository found, initializing review manager and pr tree view.
-2023-03-08 00:48:50.744 [info] Registering git provider
