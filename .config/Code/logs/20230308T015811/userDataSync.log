@@ -1,0 +1,8 @@
+2023-03-08 01:58:12.032 [info] Using settings sync service https://vscode-sync.trafficmanager.net/
+2023-03-08 01:58:12.032 [info] Auto Sync is disabled.
+2023-03-08 01:58:12.088 [info] Deleting non existing profile from backup /home/araya/.config/Code/User/sync/extensions
+2023-03-08 01:58:12.090 [info] Deleting non existing profile from backup /home/araya/.config/Code/User/sync/globalState
+2023-03-08 01:58:12.093 [info] Deleting non existing profile from backup /home/araya/.config/Code/User/sync/keybindings
+2023-03-08 01:58:12.095 [info] Deleting non existing profile from backup /home/araya/.config/Code/User/sync/settings
+2023-03-08 01:58:12.096 [info] Deleting non existing profile from backup /home/araya/.config/Code/User/sync/snippets
+2023-03-08 01:58:12.098 [info] Deleting non existing profile from backup /home/araya/.config/Code/User/sync/tasks

@@ -1,0 +1,27 @@
+2023-03-08 01:58:12.822 [warning] /home/araya/.ssh/config: ENOENT: no such file or directory, open '/home/araya/.ssh/config'
+2023-03-08 01:58:12.872 [info] Looking for git repository
+2023-03-08 01:58:12.872 [info] Found 0 repositories during activation
+2023-03-08 01:58:12.872 [info] Git repository found, initializing review manager and pr tree view.
+2023-03-08 01:58:12.872 [info] Registering git provider
+2023-03-08 02:16:39.338 [warning] /home/araya/.ssh/config: ENOENT: no such file or directory, open '/home/araya/.ssh/config'
+2023-03-08 02:16:39.378 [info] Looking for git repository
+2023-03-08 02:16:39.378 [info] Found 0 repositories during activation
+2023-03-08 02:16:39.378 [info] Git repository found, initializing review manager and pr tree view.
+2023-03-08 02:16:43.134 [info] Registering git provider
+2023-03-08 02:16:43.186 [info] Repository file:///home/araya/Repos/ateam-builders-website has been opened
+2023-03-08 02:16:43.186 [info] Review> Validate state in progress
+2023-03-08 02:16:43.186 [info] Review> Validating state...
+2023-03-08 02:16:43.186 [info] Cannot updates repositories as git is uninitialized
+2023-03-08 02:16:43.224 [info] Git initialization state changed: state=initialized
+2023-03-08 02:16:43.224 [info] Review> Queuing additional validate state
+2023-03-08 02:16:43.250 [info] Review> Validate state in progress
+2023-03-08 02:16:43.250 [info] Review> Validating state...
+2023-03-08 02:16:43.251 [info] Repo state for file:///home/araya/Repos/ateam-builders-website changed.
+2023-03-08 02:16:43.251 [info] Repo file:///home/araya/Repos/ateam-builders-website has already been setup.
+2023-03-08 02:16:43.252 [info] Review> Validating state...
+2023-03-08 02:16:43.260 [info] Found GitHub remote for folder /home/araya/Repos/ateam-builders-website
+2023-03-08 02:16:44.542 [info] Found GitHub remote for folder /home/araya/Repos/ateam-builders-website
+2023-03-08 02:16:44.604 [info] Review> no matching pull request metadata found for current branch main
+2023-03-08 02:16:44.624 [info] Review> no matching pull request metadata found for current branch main
+2023-03-08 02:16:45.795 [info] Review> No matching pull request metadata found on GitHub for current branch main
+2023-03-08 02:16:45.795 [info] Review> No matching pull request metadata found on GitHub for current branch main

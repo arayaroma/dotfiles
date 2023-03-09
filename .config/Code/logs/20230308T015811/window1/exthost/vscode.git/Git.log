@@ -1,0 +1,33 @@
+2023-03-08 01:58:12.326 [info] Log level: Info
+2023-03-08 01:58:12.326 [info] Validating found git in: "git"
+2023-03-08 01:58:12.326 [info] Using git "2.39.2" from "git"
+2023-03-08 02:16:43.141 [info] Log level: Info
+2023-03-08 02:16:43.141 [info] Validating found git in: "git"
+2023-03-08 02:16:43.142 [info] Using git "2.39.2" from "git"
+2023-03-08 02:16:43.144 [info] > git rev-parse --show-toplevel [10ms]
+2023-03-08 02:16:43.175 [info] > git rev-parse --git-dir --git-common-dir [3ms]
+2023-03-08 02:16:43.186 [info] Open repository: /home/araya/Repos/ateam-builders-website
+2023-03-08 02:16:43.216 [info] > git rev-parse --show-toplevel [22ms]
+2023-03-08 02:16:43.223 [info] > git rev-parse --show-toplevel [2ms]
+2023-03-08 02:16:43.225 [info] > git config --get commit.template [9ms]
+2023-03-08 02:16:43.239 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [6ms]
+2023-03-08 02:16:43.247 [info] > git status -z -uall [2ms]
+2023-03-08 02:16:43.274 [info] > git config --get commit.template [16ms]
+2023-03-08 02:16:43.282 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2023-03-08 02:16:43.290 [info] > git status -z -uall [2ms]
+2023-03-08 02:16:43.738 [info] > git check-ignore -v -z --stdin [2ms]
+2023-03-08 02:16:44.571 [info] > git config --local branch.main.github-pr-owner-number [23ms]
+2023-03-08 02:16:44.571 [info] > git config --local branch.main.github-pr-owner-number [66ms]
+2023-03-08 02:16:44.584 [info] > git check-ignore -v -z --stdin [15ms]
+2023-03-08 02:16:44.586 [info] > git config --get commit.template [1ms]
+2023-03-08 02:16:44.586 [info] > git config --get commit.template [8ms]
+2023-03-08 02:16:44.603 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [7ms]
+2023-03-08 02:16:44.614 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [12ms]
+2023-03-08 02:16:44.622 [info] > git status -z -uall [2ms]
+2023-03-08 02:16:45.776 [info] > git check-ignore -v -z --stdin [11ms]
+2023-03-08 02:18:24.235 [info] > git check-ignore -v -z --stdin [2ms]
+2023-03-08 02:18:26.874 [info] > git check-ignore -v -z --stdin [2ms]
+2023-03-08 02:21:43.196 [info] > git config --local branch.main.github-pr-owner-number [1ms]
+2023-03-08 02:21:43.216 [info] > git config --get commit.template [9ms]
+2023-03-08 02:21:43.217 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2023-03-08 02:21:43.226 [info] > git status -z -uall [2ms]
