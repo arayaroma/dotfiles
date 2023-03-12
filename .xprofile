@@ -7,3 +7,6 @@ nitrogen --restore
 
 # Simple X Hot Key Daemon
 sxhkd &
+
+# Polybar
+polybar &
