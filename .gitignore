@@ -1,18 +1,6 @@
 # Ignore everything
 /*
-!.gitignore
-!.gitmodules
 
 # Except for the files and folders we want to track
 !README.md
-!.bashrc
-!.zshrc
-!.config/alacritty
-!.config/dconf
-!.config/pipewire/pipewire
-!.config/pulse
-!.config/qtile
-!.config/systemd/user
-!.config/clight.conf
-!.xinitrc
-!.xprofile
+!.gitignore
