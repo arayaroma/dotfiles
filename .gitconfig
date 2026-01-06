@@ -1,0 +1,43 @@
+[user]
+	name 		= Daniel Araya
+	email 		= darayaroma@gmail.com
+
+[init]
+	defaultBranch 	= master
+
+[core]
+	editor 		= code --wait
+	autocrlf 	= input
+	pager		= less -FRSX
+
+[color]
+	ui 		= auto
+
+[alias]
+	st 		= status
+	co 		= checkout
+	br 		= branch
+	cm 		= commit
+	lg 		= log --oneline --graph --decorate --all
+	last 		= log -1 HEAD
+
+[fetch]
+	prune 		= true
+
+[pull]
+	rebase 		= false
+
+[rebase]
+	autoStash 	= true
+
+[diff]
+	tool 		= vimdiff
+
+[merge]
+	tool 		= vimdiff
+
+[credential]
+	helper 		= store
+
+[commit]
+	template 	= /home/nxo/.gitmessage
