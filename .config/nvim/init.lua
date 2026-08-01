@@ -1,4 +1,20 @@
 vim.g.mapleader = ' '
+
+-- Some plugins (e.g. neotest-jest) call vim.notify from an async/fast-event
+-- context, which nvim forbids (E5560: nvim_echo must not be called in a
+-- fast event context). Defer to the main loop when needed instead of
+-- crashing whatever async operation triggered it.
+do
+  local orig_notify = vim.notify
+  vim.notify = function(...)
+    local args = { ... }
+    if vim.in_fast_event() then
+      vim.schedule(function() orig_notify(unpack(args)) end)
+    else
+      orig_notify(unpack(args))
+    end
+  end
+end
 vim.opt.mouse = 'a'
 vim.opt.number = true
 vim.opt.relativenumber = true
