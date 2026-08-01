@@ -3,54 +3,27 @@ return {
     'nvim-tree/nvim-tree.lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {
-      -- disabled: nvim-tree's built-in focus-sync races with our own
-      -- BufEnter autocmd below and both resize the window; keep only ours,
-      -- since it preserves manual width and the built-in one doesn't.
       update_focused_file = {
-        enable = false,
+        enable = true,
+        update_root = false,
       },
       view = {
         width = 30,
         preserve_window_proportions = true,
       },
+      actions = {
+        -- root cause of the sidebar snapping back to its configured width
+        -- on every file open: this option explicitly calls view.resize()
+        -- with no args, which resets to the configured width and discards
+        -- any manual resize. Off = manual resizes persist.
+        open_file = {
+          resize_window = false,
+        },
+      },
     },
     keys = {
       { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Toggle file tree sidebar' },
     },
-    config = function(_, opts)
-      require('nvim-tree').setup(opts)
-
-      -- find_file() re-renders the tree window, which snaps it back to the
-      -- configured view.width and discards any manual resize. Capture and
-      -- reapply the width around the call so manual resizes survive.
-      _G.__nvim_tree_find_file_preserve_width = function(path)
-        local api_ok, api = pcall(require, 'nvim-tree.api')
-        if not api_ok or not api.tree.is_visible() then
-          return
-        end
-        local win = api.tree.winid and api.tree.winid()
-        local width = win and vim.api.nvim_win_is_valid(win) and vim.api.nvim_win_get_width(win) or nil
-        api.tree.find_file(path)
-        if width then
-          vim.schedule(function()
-            local new_win = api.tree.winid and api.tree.winid()
-            if new_win and vim.api.nvim_win_is_valid(new_win) then
-              vim.api.nvim_win_set_width(new_win, width)
-            end
-          end)
-        end
-      end
-
-      vim.api.nvim_create_autocmd('BufEnter', {
-        callback = function()
-          local bufname = vim.api.nvim_buf_get_name(0)
-          if bufname == '' or vim.bo.buftype ~= '' then
-            return
-          end
-          _G.__nvim_tree_find_file_preserve_width(bufname)
-        end,
-      })
-    end,
   },
   {
     'stevearc/oil.nvim',
@@ -80,12 +53,8 @@ return {
               actions.select_default(prompt_bufnr)
               local ok, api = pcall(require, 'nvim-tree.api')
               if ok then
-                api.tree.open()
-                if _G.__nvim_tree_find_file_preserve_width then
-                  _G.__nvim_tree_find_file_preserve_width(vim.api.nvim_buf_get_name(0))
-                else
-                  api.tree.find_file(vim.api.nvim_buf_get_name(0))
-                end
+                api.tree.open() -- no-op if already open, doesn't resize
+                api.tree.find_file(vim.api.nvim_buf_get_name(0))
               end
             end
             map('i', '<CR>', open_and_reveal)
