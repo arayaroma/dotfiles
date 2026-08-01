@@ -23,6 +23,12 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Go to split below' })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Go to split above' })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Go to right split' })
 
+-- Resize splits
+vim.keymap.set('n', '<A-h>', ':vertical resize -2<CR>', { desc = 'Shrink split width' })
+vim.keymap.set('n', '<A-l>', ':vertical resize +2<CR>', { desc = 'Grow split width' })
+vim.keymap.set('n', '<A-j>', ':resize -2<CR>', { desc = 'Shrink split height' })
+vim.keymap.set('n', '<A-k>', ':resize +2<CR>', { desc = 'Grow split height' })
+
 -- Tabpages (like browser tabs — each can hold its own splits)
 vim.keymap.set('n', '<leader>tn', ':tabnew<CR>', { desc = 'New tab' })
 vim.keymap.set('n', '<leader>tc', ':tabclose<CR>', { desc = 'Close tab' })
