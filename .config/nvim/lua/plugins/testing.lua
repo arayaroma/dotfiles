@@ -39,10 +39,27 @@ return {
       return file_path ~= nil and (file_path:match('%.spec%.[jt]sx?$') ~= nil or file_path:match('%.test%.[jt]sx?$') ~= nil)
     end
 
+    -- `npx jest` spawns via npm's `npm exec` wrapper, which is known to
+    -- leave a lingering parent process when spawned non-interactively
+    -- (no TTY) — jest itself finishes and force-exits, but npm's wrapper
+    -- process never returns, so neotest waits forever for a result that
+    -- already happened. Call the local jest binary directly instead.
+    local function find_jest_bin(file_path)
+      local dir = vim.fs.dirname(file_path)
+      while dir and dir ~= '/' do
+        local bin = dir .. '/node_modules/.bin/jest'
+        if vim.uv.fs_stat(bin) then
+          return bin
+        end
+        dir = vim.fs.dirname(dir)
+      end
+      return 'npx jest' -- fallback, shouldn't be hit in this workspace
+    end
+
     return {
       adapters = {
         require('neotest-jest')({
-          jestCommand = 'npx jest',
+          jestCommand = find_jest_bin,
           jestConfigFile = find_jest_config,
           isTestFile = is_jest_test_file,
         }),
