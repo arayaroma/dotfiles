@@ -7,6 +7,12 @@ return {
         enable = true,
         update_root = false,
       },
+      tab = {
+        sync = {
+          open = true,
+          close = false,
+        },
+      },
       view = {
         width = 30,
         preserve_window_proportions = true,
