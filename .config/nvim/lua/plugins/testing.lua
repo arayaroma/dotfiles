@@ -28,11 +28,23 @@ return {
       return nil
     end
 
+    -- neotest-jest's default isTestFile also probes package.json for a
+    -- "jest" dependency to decide if a file belongs to it — broken in an
+    -- Nx monorepo where per-app package.json files (apps/web, apps/api,
+    -- apps/mobile) don't list jest (only the workspace root does), so it
+    -- falls into a buggy fallback path and errors with "cannot read
+    -- package.json". We already know this workspace uses jest everywhere;
+    -- just match by filename, skip the broken probe entirely.
+    local function is_jest_test_file(file_path)
+      return file_path ~= nil and (file_path:match('%.spec%.[jt]sx?$') ~= nil or file_path:match('%.test%.[jt]sx?$') ~= nil)
+    end
+
     return {
       adapters = {
         require('neotest-jest')({
           jestCommand = 'npx jest',
           jestConfigFile = find_jest_config,
+          isTestFile = is_jest_test_file,
         }),
         require('neotest-vitest'),
       },
