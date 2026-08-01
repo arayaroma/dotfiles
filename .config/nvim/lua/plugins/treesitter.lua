@@ -3,10 +3,10 @@ return {
   branch = 'main',
   build = ':TSUpdate',
   config = function()
-    require('nvim-treesitter').install({ 'typescript', 'javascript', 'lua', 'json', 'jsonc' })
+    require('nvim-treesitter').install({ 'typescript', 'tsx', 'javascript', 'lua', 'json', 'jsonc' })
 
     vim.api.nvim_create_autocmd('FileType', {
-      pattern = { 'typescript', 'javascript', 'lua', 'json', 'jsonc' },
+      pattern = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'lua', 'json', 'jsonc' },
       callback = function()
         vim.treesitter.start()
         vim.wo.foldmethod = 'expr'
