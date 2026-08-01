@@ -1,0 +1,6 @@
+[Unit]
+Description=ether-pro repo-review-job (unattended, headless claude)
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/repo-review-cron.sh

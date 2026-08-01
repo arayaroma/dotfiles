@@ -1,0 +1,14 @@
+[font]
+size = 13
+
+[font.bold]
+family = "0xProto"
+style = "Bold"
+
+[font.italic]
+family = "0xProto"
+style = "Italic"
+
+[font.normal]
+family = "0xProto"
+style = "Regular"
