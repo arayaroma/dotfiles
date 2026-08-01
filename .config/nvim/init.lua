@@ -14,6 +14,7 @@ vim.opt.updatetime = 300
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.foldlevelstart = 99
 vim.opt.scrolloff = 999
+vim.opt.equalalways = false
 
 -- Splits (windows within a tabpage)
 vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split vertical' })

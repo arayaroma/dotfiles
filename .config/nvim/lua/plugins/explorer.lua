@@ -7,6 +7,10 @@ return {
         enable = true,
         update_root = false,
       },
+      view = {
+        width = 30,
+        preserve_window_proportions = true,
+      },
     },
     keys = {
       { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Toggle file tree sidebar' },
