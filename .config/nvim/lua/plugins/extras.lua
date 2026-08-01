@@ -2,6 +2,10 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     opts = {},
+    keys = {
+      { '<leader>gb', function() require('gitsigns').blame_line({ full = true }) end, desc = 'Git blame line' },
+      { '<leader>gB', function() require('gitsigns').toggle_current_line_blame() end, desc = 'Toggle inline blame' },
+    },
   },
   {
     'folke/which-key.nvim',
