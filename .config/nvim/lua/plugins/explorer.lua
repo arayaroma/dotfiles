@@ -30,6 +30,23 @@ return {
     keys = {
       { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Toggle file tree sidebar' },
     },
+    config = function(_, opts)
+      require('nvim-tree').setup(opts)
+
+      -- sync sidebar width across tabs: whenever it's resized in one tab,
+      -- apply the same width to the tree window in every other tab.
+      local api = require('nvim-tree.api')
+      api.events.subscribe(api.events.Event.Resize, function(size)
+        for _, tabpage in ipairs(vim.api.nvim_list_tabpages()) do
+          for _, win in ipairs(vim.api.nvim_tabpage_list_wins(tabpage)) do
+            local buf = vim.api.nvim_win_get_buf(win)
+            if vim.bo[buf].filetype == 'NvimTree' and vim.api.nvim_win_get_width(win) ~= size then
+              vim.api.nvim_win_set_width(win, size)
+            end
+          end
+        end
+      end)
+    end,
   },
   {
     'stevearc/oil.nvim',

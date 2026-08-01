@@ -36,6 +36,29 @@ vim.keymap.set('n', '<leader>tc', ':tabclose<CR>', { desc = 'Close tab' })
 vim.keymap.set('n', '<Tab>', ':tabnext<CR>', { desc = 'Next tab' })
 vim.keymap.set('n', '<S-Tab>', ':tabprevious<CR>', { desc = 'Previous tab' })
 
+-- Tabline: label each tab with its file's name, not "NvimTree" even when
+-- the sidebar is the last-focused window in that tab (default vim tabline
+-- would pick that).
+vim.opt.showtabline = 2
+function _G.__tabline()
+  local s = ''
+  for i = 1, vim.fn.tabpagenr('$') do
+    local buflist = vim.fn.tabpagebuflist(i)
+    local name = '[No Name]'
+    for _, bufnr in ipairs(buflist) do
+      if vim.bo[bufnr].filetype ~= 'NvimTree' and vim.bo[bufnr].buftype == '' then
+        local bufname = vim.fn.bufname(bufnr)
+        name = bufname ~= '' and vim.fn.fnamemodify(bufname, ':t') or '[No Name]'
+        break
+      end
+    end
+    local hl = i == vim.fn.tabpagenr() and '%#TabLineSel#' or '%#TabLine#'
+    s = s .. hl .. ' ' .. i .. ': ' .. name .. ' '
+  end
+  return s .. '%#TabLineFill#'
+end
+vim.opt.tabline = '%!v:lua.__tabline()'
+
 -- Embedded terminal, in a split
 vim.keymap.set('n', '<leader>tt', ':split | terminal<CR>i', { desc = 'Terminal in split' })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal insert mode' })
