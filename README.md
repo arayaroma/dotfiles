@@ -1,8 +1,8 @@
 # dotfiles
 
-Arch Linux. Run `./setup.sh` after cloning on a fresh install.
+Linux (Arch): `./setup.sh`. Windows (PowerShell): `.\setup.ps1`.
 
-## What it sets up
+## What it sets up (Arch — `setup.sh`)
 
 - `~/.gitconfig`, `~/.gitmessage`
 - `~/.config/nvim` — lazy.nvim, LSP, telescope + telescope-frecency (recent-first
@@ -14,6 +14,26 @@ Arch Linux. Run `./setup.sh` after cloning on a fresh install.
 - kitty set as default terminal via `~/.config/xdg-terminals.list` + GNOME dock
   favorite swapped (GNOME-only, best-effort)
 - `neovim`, `kitty`, `alacritty`, `tmux` installed via `pacman`
+
+## What it sets up (Windows — `setup.ps1`)
+
+- `~/.gitconfig`, `~/.gitmessage`
+- `~\AppData\Local\nvim` — same config as Linux, unchanged (pure Lua, no
+  OS-specific paths in it; `clipboard=unnamedplus` uses Neovim's built-in
+  Windows clipboard support, no extra tool needed on 0.10+)
+- `~\AppData\Roaming\alacritty` — kitty has **no native Windows build**, so
+  Alacritty is the terminal here instead (or just use Windows Terminal,
+  which already has solid mouse/SGR support — Alacritty isn't required,
+  it's there because the config already existed)
+- `neovim`, `alacritty` installed via `winget`
+- Symlinks require admin or Developer Mode; the script falls back to
+  copying the files if symlink creation fails (re-run the script after
+  editing the source in the repo, since a copy won't reflect edits made
+  only on disk)
+
+**Not ported to Windows** (Linux/GNOME-only, intentionally skipped): kitty,
+tmux, the `xdg-terminals.list`/GNOME dock default-terminal swap, and the
+`ether-pro` systemd timer section below.
 
 ## Not automated by setup.sh (do manually if needed)
 
