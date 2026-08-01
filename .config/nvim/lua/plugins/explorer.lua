@@ -3,9 +3,11 @@ return {
     'nvim-tree/nvim-tree.lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {
+      -- disabled: nvim-tree's built-in focus-sync races with our own
+      -- BufEnter autocmd below and both resize the window; keep only ours,
+      -- since it preserves manual width and the built-in one doesn't.
       update_focused_file = {
-        enable = true,
-        update_root = false,
+        enable = false,
       },
       view = {
         width = 30,
