@@ -39,6 +39,8 @@ vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Go to left split' })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Go to split below' })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Go to split above' })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Go to right split' })
+vim.keymap.set('n', '<leader>sV', '<C-w>H', { desc = 'Switch layout to vertical' })
+vim.keymap.set('n', '<leader>sH', '<C-w>J', { desc = 'Switch layout to horizontal' })
 
 -- Resize splits
 vim.keymap.set('n', '<A-h>', ':vertical resize -2<CR>', { desc = 'Shrink split width' })
