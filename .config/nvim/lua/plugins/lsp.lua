@@ -7,14 +7,17 @@ return {
     'williamboman/mason-lspconfig.nvim',
     dependencies = { 'mason.nvim' },
     opts = {
-      ensure_installed = { 'ts_ls', 'biome' },
+      ensure_installed = { 'ts_ls', 'biome', 'tailwindcss' },
     },
   },
   {
     'neovim/nvim-lspconfig',
     dependencies = { 'mason-lspconfig.nvim' },
     config = function()
-      vim.lsp.enable({ 'ts_ls', 'biome' })
+      vim.lsp.config('tailwindcss', {
+        filetypes = { 'html', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+      })
+      vim.lsp.enable({ 'ts_ls', 'biome', 'tailwindcss' })
 
       vim.diagnostic.config({
         virtual_text = true,
