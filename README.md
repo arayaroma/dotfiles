@@ -1,5 +1,8 @@
 # dotfiles
 
+![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+
 Linux (Arch): `./setup.sh` — guía paso a paso en [docs/install-linux.md](docs/install-linux.md).
 Windows (PowerShell): `.\setup.ps1` — guía paso a paso en [docs/install-windows.md](docs/install-windows.md).
 

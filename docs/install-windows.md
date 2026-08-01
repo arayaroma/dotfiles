@@ -1,5 +1,7 @@
 # Instalar en Windows
 
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+
 1. Abrí PowerShell (como administrador si podés — hace falta para
    symlinks; si no, el script copia los archivos igual, solo que después
    hay que re-correrlo cada vez que edites algo en el repo).
