@@ -1,6 +1,7 @@
 # dotfiles
 
-Linux (Arch): `./setup.sh`. Windows (PowerShell): `.\setup.ps1`.
+Linux (Arch): `./setup.sh` — guía paso a paso en [docs/install-linux.md](docs/install-linux.md).
+Windows (PowerShell): `.\setup.ps1` — guía paso a paso en [docs/install-windows.md](docs/install-windows.md).
 
 ## What it sets up (Arch — `setup.sh`)
 
