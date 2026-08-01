@@ -17,16 +17,35 @@ return {
     },
     config = function(_, opts)
       require('nvim-tree').setup(opts)
+
+      -- find_file() re-renders the tree window, which snaps it back to the
+      -- configured view.width and discards any manual resize. Capture and
+      -- reapply the width around the call so manual resizes survive.
+      _G.__nvim_tree_find_file_preserve_width = function(path)
+        local api_ok, api = pcall(require, 'nvim-tree.api')
+        if not api_ok or not api.tree.is_visible() then
+          return
+        end
+        local win = api.tree.winid and api.tree.winid()
+        local width = win and vim.api.nvim_win_is_valid(win) and vim.api.nvim_win_get_width(win) or nil
+        api.tree.find_file(path)
+        if width then
+          vim.schedule(function()
+            local new_win = api.tree.winid and api.tree.winid()
+            if new_win and vim.api.nvim_win_is_valid(new_win) then
+              vim.api.nvim_win_set_width(new_win, width)
+            end
+          end)
+        end
+      end
+
       vim.api.nvim_create_autocmd('BufEnter', {
         callback = function()
           local bufname = vim.api.nvim_buf_get_name(0)
           if bufname == '' or vim.bo.buftype ~= '' then
             return
           end
-          local api_ok, api = pcall(require, 'nvim-tree.api')
-          if api_ok and api.tree.is_visible() then
-            api.tree.find_file(bufname)
-          end
+          _G.__nvim_tree_find_file_preserve_width(bufname)
         end,
       })
     end,
@@ -60,7 +79,11 @@ return {
               local ok, api = pcall(require, 'nvim-tree.api')
               if ok then
                 api.tree.open()
-                api.tree.find_file(vim.api.nvim_buf_get_name(0))
+                if _G.__nvim_tree_find_file_preserve_width then
+                  _G.__nvim_tree_find_file_preserve_width(vim.api.nvim_buf_get_name(0))
+                else
+                  api.tree.find_file(vim.api.nvim_buf_get_name(0))
+                end
               end
             end
             map('i', '<CR>', open_and_reveal)
