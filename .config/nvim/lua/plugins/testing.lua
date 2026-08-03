@@ -13,19 +13,38 @@ return {
     -- forbids that (E5560) and it crashes every real test run. Supply the
     -- config path ourselves with a plain synchronous filesystem walk
     -- (vim.uv.fs_stat, not glob) so neotest-jest never needs to probe.
+    -- Walk up to the filesystem root. Comparing `dir ~= '/'` only holds on
+    -- POSIX — Windows roots look like 'C:/' and never equal '/', which
+    -- would loop forever. `vim.fs.dirname` of a root returns the root
+    -- itself on every platform, so stopping when it stops changing is the
+    -- portable way to detect "reached the top".
+    local function walk_up(start_dir, check)
+      local dir = start_dir
+      while dir do
+        local result = check(dir)
+        if result then
+          return result
+        end
+        local parent = vim.fs.dirname(dir)
+        if parent == dir then
+          return nil
+        end
+        dir = parent
+      end
+      return nil
+    end
+
     local function find_jest_config(file_path)
-      local dir = vim.fs.dirname(file_path)
       local candidates = { 'jest.config.ts', 'jest.config.cts', 'jest.config.js', 'jest.config.cjs' }
-      while dir and dir ~= '/' do
+      return walk_up(vim.fs.dirname(file_path), function(dir)
         for _, name in ipairs(candidates) do
           local path = dir .. '/' .. name
           if vim.uv.fs_stat(path) then
             return path
           end
         end
-        dir = vim.fs.dirname(dir)
-      end
-      return nil
+        return nil
+      end)
     end
 
     -- neotest-jest's default isTestFile also probes package.json for a
@@ -45,15 +64,14 @@ return {
     -- process never returns, so neotest waits forever for a result that
     -- already happened. Call the local jest binary directly instead.
     local function find_jest_bin(file_path)
-      local dir = vim.fs.dirname(file_path)
-      while dir and dir ~= '/' do
-        local bin = dir .. '/node_modules/.bin/jest'
-        if vim.uv.fs_stat(bin) then
-          return bin
-        end
-        dir = vim.fs.dirname(dir)
-      end
-      return 'npx jest' -- fallback, shouldn't be hit in this workspace
+      -- npm's .bin shim is a POSIX shell script named plain `jest` on
+      -- Linux/macOS, but `jest.CMD` (a batch file) on Windows — the
+      -- extensionless one isn't directly spawnable there.
+      local bin_name = vim.fn.has('win32') == 1 and 'jest.CMD' or 'jest'
+      return walk_up(vim.fs.dirname(file_path), function(dir)
+        local bin = dir .. '/node_modules/.bin/' .. bin_name
+        return vim.uv.fs_stat(bin) and bin or nil
+      end) or 'npx jest' -- fallback, shouldn't be hit in this workspace
     end
 
     return {
